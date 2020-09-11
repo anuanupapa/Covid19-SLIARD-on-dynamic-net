@@ -1,0 +1,52 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def prob_func(x,c,ld):
+    return(np.exp(-1*x*c**(ld+1.)))
+
+plt.figure(figsize=(20,10))
+plt.subplot(2,2,1)
+x=np.linspace(0,1,100)
+plt.plot(x,prob_func(x,1,0), label='c=1')
+plt.ylim(-0.1,1.1)
+plt.plot(x,prob_func(x,2,0), label='c=2')
+plt.plot(x,prob_func(x,4,0), label='c=4')
+plt.plot(x,prob_func(x,10,0), label='c=10')
+plt.title('f(x)=e$^{-cx}$', fontsize=32)
+plt.legend()
+plt.ylabel('f(x)')
+plt.tick_params(left=False, labelleft=False)
+
+plt.subplot(2,2,2)
+plt.plot(x,prob_func(x,1,2), label='c=1')
+plt.ylim(-0.1,1.1)
+plt.plot(x,prob_func(x,2,2), label='c=2')
+plt.plot(x,prob_func(x,4,2), label='c=4')
+plt.plot(x,prob_func(x,10,2), label='c=10')
+plt.title('f(x)=e$^{-c^{3}x}$', fontsize=32)
+plt.legend()
+plt.tick_params(bottom=False, labelbottom=False)
+
+plt.subplot(2,2,3)
+plt.plot(x,prob_func(x,1,5), label='c=1')
+plt.ylim(-0.1,1.1)
+plt.plot(x,prob_func(x,2,5), label='c=2')
+plt.plot(x,prob_func(x,4,5), label='c=4')
+plt.plot(x,prob_func(x,10,5), label='c=10')
+plt.title('f(x)=e$^{-c^{6}x}$', fontsize=32)
+plt.legend()
+plt.ylabel('f(x)')
+plt.xlabel('x')
+
+plt.subplot(2,2,4)
+plt.plot(x,prob_func(x,1,9), label='c=1')
+plt.ylim(-0.1,1.1)
+plt.plot(x,prob_func(x,2,9), label='c=2')
+plt.plot(x,prob_func(x,4,9), label='c=4')
+plt.plot(x,prob_func(x,10,9), label='c=10')
+plt.title('f(x)=e$^{-c^{10}x}$', fontsize=32)
+plt.legend()
+plt.xlabel('x')
+
+#plt.savefig('LDexp.png')
+plt.show()
